@@ -1,0 +1,15 @@
+matrix:
+  include:
+    - sudo: required
+      services:
+        - docker
+    - os: osx
+
+script:
+  - pip install cibuildwheel
+  - cibuildwheel --output-dir wheelhouse
+
+env:
+  global:
+    - CIBW_BEFORE_BUILD_LINUX: "apt-get install libre2-dev && {pip} install Cython"
+    - CIBW_BEFORE_BUILD_MACOS: "brew install re2 && {pip} install Cython"

@@ -109,17 +109,17 @@ def main():
                 'warn.unreachable': True,
             })
     setup(
-        name='re2',
-        version='0.2.23',
+        name='re2py',
+        version='0.2.24',
         description='Python wrapper for Google\'s RE2 using Cython',
         long_description=get_long_description(),
         author=get_authors(),
         license='New BSD License',
-        author_email = 'mike@axiak.net',
-        url = 'http://github.com/axiak/pyre2/',
-        ext_modules = ext_modules,
+        author_email='mike@axiak.net',
+        url='http://github.com/axiak/pyre2/',
+        ext_modules=ext_modules,
         cmdclass=cmdclass,
-        classifiers = [
+        classifiers=[
             'License :: OSI Approved :: BSD License',
             'Programming Language :: Cython',
             'Programming Language :: Python :: 2.6',
@@ -128,6 +128,7 @@ def main():
             'Topic :: Software Development :: Libraries :: Python Modules',
             ],
         )
+
 
 if __name__ == '__main__':
     main()
