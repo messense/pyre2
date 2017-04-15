@@ -6,6 +6,7 @@ matrix:
     - os: osx
 
 script:
+  - test -e `which brew` && brew install re2
   - pip install Cython
   - pip install https://github.com/joerick/cibuildwheel/archive/master.zip
   - cibuildwheel --output-dir wheelhouse
@@ -13,4 +14,4 @@ script:
 env:
   global:
     - CIBW_BEFORE_BUILD_LINUX="yum install -y re2-devel; {pip} install Cython"
-    - CIBW_BEFORE_BUILD_MACOS="brew install re2; {pip} install Cython"
+    - CIBW_BEFORE_BUILD_MACOS="{pip} install Cython"
