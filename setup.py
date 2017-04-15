@@ -10,12 +10,6 @@ BASE_DIR = os.path.dirname(__file__)
 PY2 = sys.version_info[0] == 2
 DEBUG = False
 
-# kludge; http://stackoverflow.com/a/37762853
-try:
-    CLANG = os.environ['CC'] == 'clang' or platform.system() == 'Darwin'
-except KeyError:
-    CLANG = False
-
 
 class TestCommand(Command):
     description = 'Run packaged tests'
@@ -86,8 +80,7 @@ def main():
             ] if re2_prefix else []
     extra_compile_args = ['-O0', '-g'] if DEBUG else [
             '-O3', '-march=native', '-DNDEBUG']
-    if CLANG:
-        extra_compile_args.append('-std=c++11')
+    extra_compile_args.append('-std=c++11')
     ext_modules = [
         Extension(
             're2',
