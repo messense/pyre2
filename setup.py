@@ -2,6 +2,7 @@ import io
 import os
 import re
 import sys
+import platform
 from distutils.core import setup, Extension, Command
 
 MINIMUM_CYTHON_VERSION = '0.20'
@@ -11,9 +12,10 @@ DEBUG = False
 
 # kludge; http://stackoverflow.com/a/37762853
 try:
-    CLANG = os.environ['CC'] == 'clang'
+    CLANG = os.environ['CC'] == 'clang' or platform.system() == 'Darwin'
 except KeyError:
     CLANG = False
+
 
 class TestCommand(Command):
     description = 'Run packaged tests'
