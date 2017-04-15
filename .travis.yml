@@ -6,7 +6,7 @@ matrix:
     - os: osx
 
 script:
-  - test -e `which brew` && brew install re2
+  - test "$TRAVIS_OS_NAME" = "osx" && brew install re2
   - pip install Cython
   - pip install https://github.com/joerick/cibuildwheel/archive/master.zip
   - cibuildwheel --output-dir wheelhouse
