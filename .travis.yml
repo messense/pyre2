@@ -12,5 +12,5 @@ script:
 
 env:
   global:
-    - CIBW_BEFORE_BUILD_LINUX="yum install re2-devel; {pip} install Cython"
+    - CIBW_BEFORE_BUILD_LINUX="yum install -y re2-devel; {pip} install Cython"
     - CIBW_BEFORE_BUILD_MACOS="brew install re2; {pip} install Cython"
