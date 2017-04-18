@@ -4,6 +4,7 @@ matrix:
       services:
         - docker
     - os: osx
+      osx_image: xcode8.3
 
 script:
   - test "$TRAVIS_OS_NAME" = "osx" && brew install re2 || true
